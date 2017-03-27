@@ -1,0 +1,51 @@
+<!DOCTYPE>
+<html ng-app="homeEMR">
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<title>Family EMR</title>
+</head>
+<body>
+
+	<div class="container" ng-controller="AppController">
+		<h1>Family EMR</h1>
+		<table  class="table">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Systolic</th>
+				<th>Diastolic</th>
+				<th>MAP</th>
+				<th>Pulse</th>
+				<th>&nbsp</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>&nbsp</td>
+				<td><input class="form-control" ng-model="record.systolic"></td>
+				<td><input class="form-control" ng-model="record.diastolic"></td>
+				<td><input class="form-control" ng-model="record.map"></td>
+				<td><input class="form-control" ng-model="record.pulse"></td>
+				<td><button class="btn btn-primary" ng-click="submitRecord()">Submit</button></td>
+				<td><button class="btn btn-info" ng-click="updateRecord()">Update</button></td>
+			</tr>
+			<tr ng-repeat="record in records">
+				<td>{{record._id}}</td>
+				<td>{{record.systolic}}</td>
+				<td>{{record.diastolic}}</td>
+				<td>{{record.map}}</td>
+				<td>{{record.pulse}}</td>
+				<td><button class="btn btn-danger" ng-click="removeRecord(record._id)">Remove</button></td> 
+				<td><button class="btn btn-warning" ng-click="editRecord(record._id)">Edit</button></td>
+			</tr>
+		</tbody>
+		</table>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+<script src="controllers/controller.js"></script>
+</body>
+</html>
