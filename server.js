@@ -3,7 +3,8 @@ var mongojs = require('mongojs');
 var parser = require('body-parser');
 
 var app = express();
-var db = mongojs("familyEMR", ['familyEMR']);
+var db = mongojs('admin:Hi0k063zjH@localhost/familyEMR', ['familyEMR'])
+// var db = mongojs("familyEMR", ['familyEMR']);
 
 
 app.use(express.static(__dirname + "/public"));
